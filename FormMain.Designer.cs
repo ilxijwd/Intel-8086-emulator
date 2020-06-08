@@ -1,6 +1,6 @@
 ﻿namespace Курсач
 {
-    partial class MainProgramm
+    partial class FormMain
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainProgramm));
-            this.RunButton = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.StepButton = new System.Windows.Forms.Button();
-            this.StopButton = new System.Windows.Forms.Button();
             this.ResetButton = new System.Windows.Forms.Button();
             this.OpenDebuggerButton = new System.Windows.Forms.Button();
             this.ShowProgrammButton = new System.Windows.Forms.Button();
@@ -40,38 +38,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // RunButton
-            // 
-            this.RunButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RunButton.Location = new System.Drawing.Point(528, 134);
-            this.RunButton.Name = "RunButton";
-            this.RunButton.Size = new System.Drawing.Size(120, 25);
-            this.RunButton.TabIndex = 0;
-            this.RunButton.Text = "Run";
-            this.RunButton.UseVisualStyleBackColor = true;
-            this.RunButton.Click += new System.EventHandler(this.RunButton_Click);
-            // 
             // StepButton
             // 
             this.StepButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.StepButton.Location = new System.Drawing.Point(528, 103);
+            this.StepButton.Location = new System.Drawing.Point(528, 165);
             this.StepButton.Name = "StepButton";
             this.StepButton.Size = new System.Drawing.Size(120, 25);
             this.StepButton.TabIndex = 1;
             this.StepButton.Text = "Step";
             this.StepButton.UseVisualStyleBackColor = true;
             this.StepButton.Click += new System.EventHandler(this.StepButton_Click);
-            // 
-            // StopButton
-            // 
-            this.StopButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.StopButton.Location = new System.Drawing.Point(528, 165);
-            this.StopButton.Name = "StopButton";
-            this.StopButton.Size = new System.Drawing.Size(120, 25);
-            this.StopButton.TabIndex = 2;
-            this.StopButton.Text = "Stop";
-            this.StopButton.UseVisualStyleBackColor = true;
-            this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
             // 
             // ResetButton
             // 
@@ -102,7 +78,7 @@
             this.ShowProgrammButton.Name = "ShowProgrammButton";
             this.ShowProgrammButton.Size = new System.Drawing.Size(120, 25);
             this.ShowProgrammButton.TabIndex = 7;
-            this.ShowProgrammButton.Text = "Show programm";
+            this.ShowProgrammButton.Text = "Show code";
             this.ShowProgrammButton.UseVisualStyleBackColor = true;
             this.ShowProgrammButton.Click += new System.EventHandler(this.ShowProgrammButton_Click);
             // 
@@ -125,7 +101,7 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // MainProgramm
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -135,10 +111,8 @@
             this.Controls.Add(this.ShowProgrammButton);
             this.Controls.Add(this.OpenDebuggerButton);
             this.Controls.Add(this.ResetButton);
-            this.Controls.Add(this.StopButton);
             this.Controls.Add(this.StepButton);
-            this.Controls.Add(this.RunButton);
-            this.Name = "MainProgramm";
+            this.Name = "FormMain";
             this.Text = "SuperComputer by ilxijwd";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -146,10 +120,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button RunButton;
         private System.Windows.Forms.Button StepButton;
-        private System.Windows.Forms.Button StopButton;
         private System.Windows.Forms.Button ResetButton;
         private System.Windows.Forms.Button OpenDebuggerButton;
         private System.Windows.Forms.Button ShowProgrammButton;
