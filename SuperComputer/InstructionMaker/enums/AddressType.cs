@@ -1,12 +1,12 @@
-﻿namespace Курсач.SuperComputer.InstructionMaker.enums
+﻿
+namespace Курсач.SuperComputer.InstructionMaker.enums
 {
+    // Типи адресації команд (Безадресна, Безпосередня, Пряма, Непряма)
     public enum AddressType
     {
-        NONE,
-        IMMEDIATE,
-        DIRECT,
-        INDIRECT,
-        DIRECT_BASING,
-        DIRECT_INDEXING
+        NONE = 0x00,
+        IMMEDIATE = 0x01,
+        DIRECT = 0x02,
+        INDIRECT = 0x03
     }
 }

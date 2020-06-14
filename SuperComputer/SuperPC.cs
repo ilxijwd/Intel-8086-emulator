@@ -1,28 +1,44 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Курсач.SuperComputer.Components;
 using Курсач.SuperComputer.InstructionMaker;
 using Курсач.SuperComputer.InstructionMaker.enums;
 
 namespace Курсач.SuperComputer
 {
+    // Відповідає за збереження та виконання процедур
     public class SuperPC
     {
-        private Queue<Instruction> instructions;
+        private InstructionManager instructionManager;
         private Stack<Operand> stack;
-        private FlagsRegister flags;
+        private RAM ram;
+
         private ALU alu;
 
-        public SuperPC(Queue<Instruction> i)
+        public SuperPC(Instruction[] i)
         {
-            this.instructions = i;
+            this.instructionManager = new InstructionManager(i);
+            this.instructionManager.CheckInstructions();
+            this.instructionManager.MapAddressesToInstructions();
+
             this.stack = new Stack<Operand>();
-            this.flags = new FlagsRegister();
-            this.alu = new ALU(this.flags);
+            this.alu = new ALU(new FlagsRegister());
+            this.ram = new RAM();
+            this.ram.Write("cache", 123);
         }
 
         public void Step()
         {
-            Instruction currentInstruction = this.instructions.Dequeue();
+            Instruction currentInstruction;
+
+            try
+            {
+                currentInstruction = this.instructionManager.GetCurrentInstruction();
+            } catch (IndexOutOfRangeException)
+            {
+                this.Reset();
+                return;
+            }
 
             Mnemonic currentMnemonic = currentInstruction.GetMnemonic();
             AddressType currentAddressType = currentInstruction.GetAddressType();
@@ -31,12 +47,25 @@ namespace Курсач.SuperComputer
             switch (currentMnemonic)
             {
                 case Mnemonic.PUSH:
-                    this.stack.Push(currentOperand);
+                    {
+                        switch (currentAddressType)
+                        {
+                            case AddressType.IMMEDIATE:
+                                this.stack.Push(currentOperand);
+                                break;
+                            case AddressType.DIRECT:
+                                byte data = this.ram.Read(currentOperand.GetName());
+                                this.stack.Push(new Operand(data));
+                                break;
+                        }
+                    }
                     break;
 
                 case Mnemonic.STORE:
-                    this.stack.Pop();
-                    // TODO: Create RAM storage
+                    {
+                        Operand stackTop = this.stack.Pop();
+                        this.ram.Write(currentOperand.GetName(), stackTop.GetData());
+                    }
                     break;
 
                 case Mnemonic.IMUL:
@@ -92,20 +121,28 @@ namespace Курсач.SuperComputer
                     }
                     break;
                     /*case Mnemonic.JMP:
-                    case Mnemonic.JNP:
-                    case Mnemonic.INT:
-                    case Mnemonic.IN:
-                    case Mnemonic.OUT:*/
+                    case Mnemonic.JNP:*/
             }
         }
 
         public void Reset()
         {
+            this.instructionManager.Reset();
+            this.stack.Clear();
+            this.alu.Reset();
+            this.ram.Reset();
+            this.ram.Write("cache", 123);
         }
 
-        public Queue<Instruction> GetInstructions()
+        public RAM GetRam()
         {
-            return this.instructions;
+            return this.ram;
+        }
+
+        // Має викликатись виключно для відображення даних виконання інструкцій
+        public InstructionManager GetInstructionManager()
+        {
+            return this.instructionManager;
         }
 
         public Stack<Operand> GetStack()
@@ -115,7 +152,7 @@ namespace Курсач.SuperComputer
 
         public FlagsRegister GetFlags()
         {
-            return this.flags;
+            return this.alu.GetFlags();
         }
     }
 }

@@ -5,37 +5,38 @@ namespace Курсач.SuperComputer.InstructionMaker
     public class Operand
     {
         private byte data;
+        private string name;
 
-        public Operand(int data)
+        public Operand(byte d)
         {
-            this.data = Convert.ToByte(data);
+            this.data = d;
         }
 
-        public Operand(char data)
+        public Operand(string n)
         {
-            this.data = Convert.ToByte(data);
+            this.name = n;
         }
 
-        public Operand(byte data)
-        {
-            this.data = data;
-        }
+        public static Operand operator -(Operand a, Operand b) => new Operand((byte)(a.GetData() - b.GetData()));
 
-        public static Operand operator -(Operand a, Operand b) => new Operand(a.GetData() - b.GetData());
+        public static Operand operator *(Operand a, Operand b) => new Operand((byte)(a.GetData() * b.GetData()));
 
-        public static Operand operator *(Operand a, Operand b) => new Operand(a.GetData() * b.GetData());
+        public static Operand operator ~(Operand a) => new Operand((byte)(~a.GetData()));
 
-        public static Operand operator ~(Operand a) => new Operand(~a.GetData());
+        public static Operand operator &(Operand a, Operand b) => new Operand((byte)(a.GetData() & b.GetData()));
 
-        public static Operand operator &(Operand a, Operand b) => new Operand(a.GetData() & b.GetData());
+        public static Operand operator <<(Operand a, int b) => new Operand((byte)(a.GetData() << b));
 
-        public static Operand operator <<(Operand a, int b) => new Operand(a.GetData() << b);
-
-        public static Operand operator >>(Operand a, int b) => new Operand(a.GetData() >> b);
+        public static Operand operator >>(Operand a, int b) => new Operand((byte)(a.GetData() >> b));
 
         public byte GetData()
         {
-            return data;
+            return this.data;
+        }
+
+        public string GetName()
+        {
+            return this.name;
         }
     }
 }

@@ -33,15 +33,18 @@
             this.ResetButton = new System.Windows.Forms.Button();
             this.OpenDebuggerButton = new System.Windows.Forms.Button();
             this.ShowProgrammButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // StepButton
             // 
             this.StepButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.StepButton.Location = new System.Drawing.Point(528, 165);
+            this.StepButton.Location = new System.Drawing.Point(528, 196);
             this.StepButton.Name = "StepButton";
             this.StepButton.Size = new System.Drawing.Size(120, 25);
             this.StepButton.TabIndex = 1;
@@ -52,7 +55,7 @@
             // ResetButton
             // 
             this.ResetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ResetButton.Location = new System.Drawing.Point(528, 196);
+            this.ResetButton.Location = new System.Drawing.Point(528, 227);
             this.ResetButton.Name = "ResetButton";
             this.ResetButton.Size = new System.Drawing.Size(120, 25);
             this.ResetButton.TabIndex = 3;
@@ -82,16 +85,6 @@
             this.ShowProgrammButton.UseVisualStyleBackColor = true;
             this.ShowProgrammButton.Click += new System.EventHandler(this.ShowProgrammButton_Click);
             // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(528, 227);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 25);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Options";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -101,21 +94,58 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(528, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 19);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Автор:";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.linkLabel1.Location = new System.Drawing.Point(593, 12);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(51, 19);
+            this.linkLabel1.TabIndex = 12;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "ilxijwd";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(532, 34);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(112, 112);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(656, 324);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.ShowProgrammButton);
             this.Controls.Add(this.OpenDebuggerButton);
             this.Controls.Add(this.ResetButton);
             this.Controls.Add(this.StepButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormMain";
             this.Text = "SuperComputer by ilxijwd";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -124,8 +154,10 @@
         private System.Windows.Forms.Button ResetButton;
         private System.Windows.Forms.Button OpenDebuggerButton;
         private System.Windows.Forms.Button ShowProgrammButton;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

@@ -30,22 +30,24 @@
         {
             this.InstructionsDataGrid = new System.Windows.Forms.DataGridView();
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Instruction = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instructionsMemoryDump = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.InstructionsDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // InstructionsDataGrid
             // 
+            this.InstructionsDataGrid.AllowUserToAddRows = false;
             this.InstructionsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.InstructionsDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Address,
-            this.Data,
-            this.Value});
+            this.Instruction});
             this.InstructionsDataGrid.Location = new System.Drawing.Point(12, 12);
             this.InstructionsDataGrid.Name = "InstructionsDataGrid";
             this.InstructionsDataGrid.RowTemplate.Height = 24;
-            this.InstructionsDataGrid.Size = new System.Drawing.Size(343, 225);
+            this.InstructionsDataGrid.ShowEditingIcon = false;
+            this.InstructionsDataGrid.Size = new System.Drawing.Size(300, 300);
             this.InstructionsDataGrid.TabIndex = 0;
             // 
             // Address
@@ -53,29 +55,47 @@
             this.Address.HeaderText = "Address";
             this.Address.Name = "Address";
             this.Address.ReadOnly = true;
+            this.Address.Width = 127;
             // 
-            // Data
+            // Instruction
             // 
-            this.Data.HeaderText = "Data";
-            this.Data.Name = "Data";
-            this.Data.ReadOnly = true;
+            this.Instruction.HeaderText = "Instruction";
+            this.Instruction.Name = "Instruction";
+            this.Instruction.ReadOnly = true;
+            this.Instruction.Width = 130;
             // 
-            // Value
+            // instructionsMemoryDump
             // 
-            this.Value.HeaderText = "Value";
-            this.Value.Name = "Value";
-            this.Value.ReadOnly = true;
+            this.instructionsMemoryDump.Location = new System.Drawing.Point(318, 34);
+            this.instructionsMemoryDump.Name = "instructionsMemoryDump";
+            this.instructionsMemoryDump.Size = new System.Drawing.Size(302, 278);
+            this.instructionsMemoryDump.TabIndex = 1;
+            this.instructionsMemoryDump.Text = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(390, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(166, 19);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Дамп пам\'яті інструкцій";
             // 
             // CodePreview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(364, 249);
+            this.ClientSize = new System.Drawing.Size(632, 325);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.instructionsMemoryDump);
             this.Controls.Add(this.InstructionsDataGrid);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "CodePreview";
             this.Text = "CodePreview";
             ((System.ComponentModel.ISupportInitialize)(this.InstructionsDataGrid)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -83,7 +103,8 @@
 
         private System.Windows.Forms.DataGridView InstructionsDataGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Data;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Value;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Instruction;
+        private System.Windows.Forms.RichTextBox instructionsMemoryDump;
+        private System.Windows.Forms.Label label1;
     }
 }
